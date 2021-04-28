@@ -14,3 +14,19 @@ print(df[cols])
 
 rating = df[df['imdb_score'] > 7.5]
 print(rating[['movie_title', 'imdb_score']])
+
+country = df['country'].value_counts()
+print(country.head(10))
+
+df_gross = df.groupby('director_name')['gross'].sum()
+df_gross = df_gross.sort_values(ascending=False)
+print(df_gross.head(10))
+
+df_num = df['director_name'].value_counts()
+print(df_num.head(10))
+
+df_movies_year = df.groupby(['title_year'])['movie_title'].count()
+print(df_movies_year.head(50))
+
+langs = df['language'].unique()
+print(langs)
